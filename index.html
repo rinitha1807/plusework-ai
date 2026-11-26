@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Status Checker</title>
+</head>
+
+<body onload="welcome()">
+
+    <h1>System Status Checker</h1>
+
+    <!-- Requirement 1: Create System Status Banner -->
+    <div id="statusBanner"
+         style="background-color: orange;
+                color: white;
+                padding: 20px;
+                font-size: 20px;">
+
+        System is Checking...
+
+    </div>
+
+
+    <!-- Requirement 7: Add Button -->
+    <button onclick="checkSystemStatus()">
+        Check System Status
+    </button>
+
+
+    <script>
+
+        // Requirement 2: Welcome Message
+        function welcome() {
+
+            alert("Welcome to System Status Checker!");
+
+        }
+
+
+        // Requirement 6 and 8: Update Banner and Check Status
+        function checkSystemStatus() {
+
+            let banner = document.getElementById("statusBanner");
+
+            // Display Checking Message
+            banner.innerHTML = "System is Checking...";
+            banner.style.backgroundColor = "orange";
+
+
+            // Simulate System Checking
+            setTimeout(function() {
+
+                let status = Math.random() > 0.3;
+
+                if(status == true) {
+
+                    banner.innerHTML = "System is Online";
+                    banner.style.backgroundColor = "green";
+
+                }
+
+                else {
+
+                    banner.innerHTML = "System is Offline";
+                    banner.style.backgroundColor = "red";
+
+                }
+
+            }, 2000);
+
+        }
+
+    </script>
+
+</body>
+</html>

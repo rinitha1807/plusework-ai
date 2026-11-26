@@ -1,21 +1,54 @@
 
 import React from 'react'
-import { LayoutDashboard, Salad, Gift, Truck, ChartNoAxesCombined } from 'lucide-react'
+import {
+  LayoutDashboard,
+  Salad,
+  Gift,
+  Truck,
+  ChartNoAxesCombined
+} from 'lucide-react'
 
-const Sidebar = () => {
+function Sidebar() {
   return (
-    <aside className="bg-green-950 text-white w-56 min-h-screen p-5">
-      <h3 className="text-green-300 font-semibold mb-5">MAIN MENU</h3>
+    <aside className="hidden md:block w-56 bg-green-950 text-white p-5">
 
-      <div className="space-y-5">
-        <p className="flex items-center gap-3"><LayoutDashboard /> Dashboard</p>
-        <p className="flex items-center gap-3"><Salad /> Food Inventory</p>
-        <p className="flex items-center gap-3"><Gift /> Donations</p>
-        <p className="flex items-center gap-3"><Truck /> Pickups</p>
-        <p className="flex items-center gap-3"><ChartNoAxesCombined /> Reports</p>
+      <h2 className="text-green-300 font-bold mb-6">
+        MAIN MENU
+      </h2>
+
+      <div className="space-y-6">
+
+        <p className="flex items-center gap-3">
+          <LayoutDashboard size={20} />
+          Dashboard
+        </p>
+
+        <p className="flex items-center gap-3">
+          <Salad size={20} />
+          Food Inventory
+        </p>
+
+        <p className="flex items-center gap-3">
+          <Gift size={20} />
+          Donations
+        </p>
+
+        <p className="flex items-center gap-3">
+          <Truck size={20} />
+          Pickups
+        </p>
+
+        <p className="flex items-center gap-3">
+          <ChartNoAxesCombined size={20} />
+          Reports
+        </p>
+
       </div>
 
-      <p className="mt-12 text-sm text-green-300">Save Food, Save Earth!</p>
+      <p className="mt-16 text-sm text-green-300">
+        Save Food, Save Earth!
+      </p>
+
     </aside>
   )
 }
