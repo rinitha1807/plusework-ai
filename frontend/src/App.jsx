@@ -1,42 +1,37 @@
 
 import React from 'react'
-
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
-
 import DashBoard from './pages/DashBoard'
 import Login from './pages/Login'
-
-import Counter from './components/Counter'
-import UserInput from './components/UserInput'
+import {Routes,Route} from 'react-router-dom'
+import About from './components/About'
+import FoodInventory from './components/FoodInventory'
+import Donations from './components/Donations'
+import Pickups from './components/Pickups'
 
 const App = () => {
+  return (
+    <>
+      <Navbar/>
 
-    return (
-        <>
-            <Navbar />
+      <div className="flex flex-col md:flex-row">
+        <Sidebar/>
 
-            <div className="flex flex-col md:flex-row min-h-screen">
+        <Routes>
+          <Route path="/" element={<DashBoard/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/inventory" element={<FoodInventory/>}/>
+          <Route path="/donations" element={<Donations/>}/>
+          <Route path="/pickups" element={<Pickups/>}/>
+          <Route path="/login" element={<Login/>}/>
+        </Routes>
+      </div>
 
-                <Sidebar />
-
-                <div className="flex-1 p-5">
-
-                    <DashBoard />
-
-                    <Counter />
-
-                    <UserInput />
-
-                </div>
-
-            </div>
-
-            <Footer />
-
-        </>
-    )
+      <Footer/>
+    </>
+  )
 }
 
 export default App

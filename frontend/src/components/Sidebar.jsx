@@ -1,56 +1,45 @@
 
 import React from 'react'
-import {
-  LayoutDashboard,
-  Salad,
-  Gift,
-  Truck,
-  ChartNoAxesCombined
-} from 'lucide-react'
+import {NavLink} from 'react-router-dom'
 
-function Sidebar() {
-  return (
-    <aside className="hidden md:block w-56 bg-green-950 text-white p-5">
+const Sidebar=()=>{
 
-      <h2 className="text-green-300 font-bold mb-6">
-        MAIN MENU
-      </h2>
+    const menuStyle=({isActive}) =>
+        `mt-3 p-2 rounded ${
+            isActive
+            ? "bg-green-600 text-white font-bold"
+            : "text-gray-800 hover:bg-green-200"
+        }`
 
-      <div className="space-y-6">
+    return(
+        <div className="min-h-screen w-full md:w-48 bg-green-100 p-5 flex flex-row md:flex-col flex-wrap">
 
-        <p className="flex items-center gap-3">
-          <LayoutDashboard size={20} />
-          Dashboard
-        </p>
+            <h2 className="font-bold w-full">
+                Menu
+            </h2>
 
-        <p className="flex items-center gap-3">
-          <Salad size={20} />
-          Food Inventory
-        </p>
+            <NavLink to="/" end className={menuStyle}>
+                Dashboard
+            </NavLink>
 
-        <p className="flex items-center gap-3">
-          <Gift size={20} />
-          Donations
-        </p>
+            <NavLink to="/about" className={menuStyle}>
+                About
+            </NavLink>
 
-        <p className="flex items-center gap-3">
-          <Truck size={20} />
-          Pickups
-        </p>
+            <NavLink to="/inventory" className={menuStyle}>
+                Food Inventory
+            </NavLink>
 
-        <p className="flex items-center gap-3">
-          <ChartNoAxesCombined size={20} />
-          Reports
-        </p>
+            <NavLink to="/donations" className={menuStyle}>
+                Donations
+            </NavLink>
 
-      </div>
+            <NavLink to="/pickups" className={menuStyle}>
+                Pickups
+            </NavLink>
 
-      <p className="mt-16 text-sm text-green-300">
-        Save Food, Save Earth!
-      </p>
-
-    </aside>
-  )
+        </div>
+    )
 }
 
 export default Sidebar
